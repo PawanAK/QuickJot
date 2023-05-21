@@ -9,7 +9,7 @@ const Content = () => {
 
   if (searchText && searchText !== "") {
     filteredNotes = filteredNotes.filter((note) =>
-      note.note.toLowercase().includes.searchText.toLowercase()
+      note.note.toLowerCase().includes(searchText.toLowerCase())
     );
   } else {
     filteredNotes = items;
@@ -17,7 +17,7 @@ const Content = () => {
 
   return (
     <div>
-      <NoteItem items={filteredNotes} focus={items.lenght > 0} />
+      <NoteItem items={filteredNotes} focus={items.length > 0} />
     </div>
   );
 };

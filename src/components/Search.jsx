@@ -1,12 +1,10 @@
 import React from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import setSearchText from "../redux/notes/notesSlice";
-import { stat } from "fs";
+import { setSearchText } from "../redux/notes/notesSlice";
 
-const SearchBar = () => {
+const Search = () => {
   const dispatch = useDispatch();
-  const searchValue = useSelector((state) => state.setSearchText);
+  const searchValue = useSelector((state) => state.searchText); // Corrected selector
 
   const handleChange = (e) => {
     const text = e.target.value;
@@ -17,7 +15,7 @@ const SearchBar = () => {
     <div>
       <input
         type="text"
-        ClassName="search-box"
+        className="search-box"
         value={searchValue}
         placeholder="Search..."
         onChange={handleChange}
@@ -26,4 +24,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;

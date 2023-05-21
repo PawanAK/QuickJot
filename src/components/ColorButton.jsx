@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import setSearchText from "../redux/notes/notesSlice";
+import { setSearchText } from "../redux/notes/notesSlice";
 
 const ColorButton = ({ bgColor, setBgColor }) => {
   const colors = ["red", "blue", "green", "purple", "black"];
@@ -11,9 +11,9 @@ const ColorButton = ({ bgColor, setBgColor }) => {
 
   return (
     <div>
-      {colors.map((color, idx) => (
+      {colors.map((color, index) => (
         <button
-          key={idx}
+          key={index}
           onClick={handleClick}
           value={color}
           className={`btn btn-${color} ${
