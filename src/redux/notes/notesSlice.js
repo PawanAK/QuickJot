@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const noteSlice = createSlice({
-  name: notes,
+  name: "notes",
   initialState: {
     items: [],
     searchText: "",
