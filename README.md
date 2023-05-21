@@ -24,6 +24,17 @@ I've packed QuickJot with some awesome features that will make your note-taking 
 - **Color-coded categorization**: 🎨 Assign vibrant color schemes to your notes based on categories, making it easier to spot and organize your thoughts. With QuickJot, you have 5 exciting color options to choose from!
 - **Supercharged search functionality**: Use the `Shift + F` shortcut to quickly search within your notes. Never let a brilliant idea slip through the cracks!
 
+## Demo Video 🎥
+
+To get a better understanding of Quick
+
+https://github.com/PawanAK/QuickJot/assets/79653474/cf21920d-5cfc-4803-a616-59e4e0692b08
+
+Jot's features and how it works, watch the demo video below:
+
+[![QuickJot Demo](https://i.imgur.com/demo-video-thumbnail.png)](https://www.youtube.com/watch?v=your-demo-video-url)
+
+
 ## Live Demo 🚀
 
 Experience the magic of QuickJot in action! Check out the live demo [here](https://quick-jot.netlify.app/). 🌐 Feel free to explore the application and unleash your creativity!
