@@ -1,43 +1,56 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from "nanoid";
-import { addNote } from "../redux/notes/notesSlice";
+import React from "react";
 import ColorButton from "./ColorButton";
+import { useDispatch, useSelector } from "react-redux";
+import { addNote } from "../redux/notes/notesSlice";
+import { nanoid } from "nanoid";
 
 const NoteInput = () => {
-  const [text, setText] = useState("");
-  const [bgColor, setBgColor] = useState("red");
+  const [text, setText] = React.useState("");
+  const [bgColor, setBgColor] = React.useState("red");
+  const [duplicateNote, setDuplicateNote] = React.useState(false);
 
   const dispatch = useDispatch();
   const items = useSelector((state) => state.items);
 
   const addNewNote = () => {
-    if (text === "") {
-      alert("Enter something");
+    if (text.trim() === "") {
+      alert("Please fill in the relevant fields!");
       return;
     }
-    const note = items.filter((item) => item.note === text);
-
-    if (note.length > 0) {
-      alert("This note already exists in the store");
+    const note = items.find((item) => item.note === text.trim());
+    if (note) {
+      setDuplicateNote(true);
       return;
     }
-    dispatch(addNote({ id: nanoid(5), note: text, bgColor }));
+    dispatch(addNote({ id: nanoid(5), note: text.trim(), bgColor }));
     setText("");
+    setDuplicateNote(false);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addNewNote();
+    }
   };
 
   return (
     <div className="textarea-box">
       <textarea
         className="textarea-input"
-        placeholder="Enter your note here"
+        placeholder="Enter your note here..."
         value={text}
         onChange={(e) => setText(e.target.value)}
+        onKeyPress={handleKeyPress}
       />
+      {duplicateNote && (
+        <p className="duplicate-note-message">
+          This note already exists. Please enter a different note.
+        </p>
+      )}
       <div className="textarea-inner-container">
-        <ColorButton setBgColor={setBgColor} bgColor={bgColor} />
+        <ColorButton bgColor={bgColor} setBgColor={setBgColor} />
         <button className="btn-add" onClick={addNewNote}>
-          Add
+          ADD
         </button>
       </div>
     </div>
